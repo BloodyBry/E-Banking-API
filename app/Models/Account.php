@@ -59,4 +59,6 @@ class Account extends Model
     {
         return $this->hasMany(Transfer::class, 'destination_account_id');
     }
+
+    
 }

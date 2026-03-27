@@ -50,4 +50,14 @@ class User extends Authenticatable implements JWTSubject
             ->withPivot('is_primary_holder', 'accepted_closure')
             ->withTimestamps();
     }
+
+    public function initiatedTransfers()
+    {
+        return $this->hasMany(Transfer::class, 'initiated_by_user_id');
+    }
+
+    public function createdTransactions()
+    {
+        return $this->hasMany(Transaction::class, 'created_by_user_id');
+    }
 }
