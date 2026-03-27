@@ -13,5 +13,8 @@ Route::prefix('auth')->group(function () {
 
 Route::middleware('auth:api')->group(function () {
     Route::get('/users/me', [AuthController::class, 'me']);
+
+    Route::get('/accounts', [AccountController::class, 'index']);
     Route::post('/accounts', [AccountController::class, 'store']);
+    Route::get('/accounts/{id}', [AccountController::class, 'show']);
 });
